@@ -1,0 +1,140 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* UNAL Light Theme (Institutional Green) */
+    --background: 210 20% 98%; /* #f8f9fa - Very light grey */
+    --foreground: 220 13% 12%; /* #191C20 - Dark text */
+    
+    --card: 0 0% 100%; /* #FFFFFF - White */
+    --card-foreground: 220 13% 12%; /* #191C20 */
+    
+    --popover: 0 0% 100%; /* #FFFFFF */
+    --popover-foreground: 220 13% 12%; /* #191C20 */
+    
+    --primary: 145 100% 28%; /* #008f39 - UNAL Green */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
+    
+    --secondary: 220 10% 40%; /* #5c677d - A muted grey-blue */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
+
+    --muted: 220 15% 90%; /* #e1e5ea - Light grey for backgrounds */
+    --muted-foreground: 222 9% 47%; /* #73777F */
+
+    --accent: 220 15% 95%; /* #f0f2f5 - Very light accent */
+    --accent-foreground: 220 13% 12%;
+
+    --destructive: 0 84% 44%; /* #BA1A1A */
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 15% 85%; /* #d1d7e0 - Slightly darker border */
+    --input: 220 15% 85%;
+    --ring: 145 100% 28%; /* UNAL Green for focus rings */
+
+    --radius: 0.5rem;
+
+    /* Custom Properties for Light Theme */
+    --primary-container: 145 70% 90%; /* #cce8d8 - Light UNAL Green */
+    --on-primary-container: 145 100% 15%; /* #004d1d - Dark UNAL Green */
+    
+    /* Elevation */
+    --elevation-level1: 0px 1px 2px 0px rgba(0,0,0,0.1), 0px 1px 3px 1px rgba(0,0,0,0.08);
+  }
+
+  .dark {
+    /* M3 Dark Theme (Modern Blue) */
+    --background: 220 23% 8%; /* #0F1419 - Surface Dim */
+    --foreground: 225 13% 90%; /* #E1E2E8 */
+
+    --card: 220 17% 12%; /* #171C20 - Surface Container Low */
+    --card-foreground: 225 13% 90%; /* #E1E2E8 */
+
+    --popover: 220 23% 8%; /* #0F1419 */
+    --popover-foreground: 225 13% 90%; /* #E1E2E8 */
+    
+    --primary: 212 93% 81%; /* #A8C7FA */
+    --primary-foreground: 212 100% 17%; /* #003258 */
+
+    --secondary: 224 26% 77%; /* #BEC6DC */
+    --secondary-foreground: 222 25% 20%; /* #283141 */
+
+    --muted: 219 14% 20%; /* #252A2F - Surface Container High */
+    --muted-foreground: 221 16% 79%; /* #C2C7CF */
+
+    --accent: 219 14% 20%; /* #252A2F */
+    --accent-foreground: 225 13% 90%; /* #E1E2E8 */
+
+    --destructive: 0 100% 84%; /* #FFB4AB */
+    --destructive-foreground: 2 100% 21%; /* #690005 */
+
+    --border: 220 9% 58%; /* #8C9199 - Outline */
+    --input: 220 9% 58%; /* #8C9199 */
+    --ring: 212 93% 81%; /* #A8C7FA */
+
+    /* Custom Properties for Dark Theme */
+    --primary-container: 212 100% 25%; /* #00497D */
+    --on-primary-container: 212 100% 91%; /* #D1E4FF */
+
+    /* Elevation */
+    --elevation-level1: 0px 1px 2px 0px rgba(0,0,0,0.6), 0px 1px 3px 1px rgba(0,0,0,0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .prose {
+    @apply text-foreground;
+  }
+
+  .prose strong {
+      @apply font-bold;
+  }
+
+  .prose em {
+      @apply italic;
+  }
+
+  .prose ul {
+      @apply list-disc pl-5;
+  }
+
+  .prose li {
+      @apply my-1;
+  }
+
+  .prose p {
+      @apply my-2;
+  }
+}
+
+@keyframes logoPulse {
+    from { transform: scale(0.9); opacity: 0.8; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes logoShine {
+    0% { box-shadow: var(--elevation-level1), 0 0 5px transparent; }
+    50% { box-shadow: var(--elevation-level1), 0 0 15px 2px hsla(var(--primary), 0.5); }
+    100% { box-shadow: var(--elevation-level1), 0 0 5px transparent; }
+}
+
+.luna-logo {
+    animation: logoPulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) both, logoShine 5s ease-in-out infinite 2s;
+    box-shadow: var(--elevation-level1);
+}
+
+:focus-visible {
+  outline: 3px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
